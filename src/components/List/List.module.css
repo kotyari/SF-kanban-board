@@ -1,0 +1,62 @@
+.list {
+  background-color: rgba(235, 236, 240, 1);
+  width: 282px;
+  padding: 2px;
+  margin: 20px 15px;
+  border-radius: 10px;
+}
+
+.list p {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  text-align: left;
+}
+
+.title {
+  margin: 12px;
+}
+
+.tasks {
+  display: block;
+}
+
+.tasks_item {
+  background-color: white;
+  margin: 8px 12px;
+  padding: 7px 8px;
+  border-radius: 5px;
+}
+
+.btnBlock {
+  margin: 20px 12px 12px 12px;
+  text-align: left;
+}
+
+.add_card_button {
+  background: none;
+  border: none;
+  appearance: none;
+  color: rgba(94, 108, 132, 1);
+  text-align: left;
+  font-size: 18px;
+  font-family: 'Roboto';
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.add_card_button:hover {
+  color: black;
+  cursor: pointer;
+  background-color: white;
+}
+
+.task_link {
+  text-decoration: none;
+  color: black;
+}
+
+.task_link:hover {
+  text-decoration: underline;
+}
