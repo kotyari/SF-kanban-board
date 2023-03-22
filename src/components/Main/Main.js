@@ -11,7 +11,7 @@ function Main(props) {
       <Routes>
         <Route key={uniqid()} exact path={`/`} element={<Board {...props} />} />
         <Route path="/tasks">
-          <Route path={':id'} element={<TaskDetail />} />
+          <Route path={':id'} element={<TaskDetail {...props} />} />
         </Route>
       </Routes>
     </main>

@@ -3,14 +3,13 @@ import css from './FormChangeList.module.css'
 import { LIST_TYPES, LIST_COPY } from '../../config'
 
 function FormChangeList(props) {
-  const { title, type, tasks, addNewTask } = props
+  const { title, type, tasks } = props
   return (
     <form>
-      <select className={css.selection}>
-        {tasks.map((task) => {
-          return <option>{task.title}</option>
-        })}
-      </select>
+      <select className={css.selection}></select>
+      {tasks.map((task) => {
+        return <option>{task.title}</option>
+      })}
     </form>
   )
 }
