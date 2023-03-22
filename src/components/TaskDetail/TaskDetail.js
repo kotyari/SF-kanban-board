@@ -1,23 +1,24 @@
 import React from 'react'
-import { useMatch } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import css from './TaskDetail.module.css'
 import cancel from '../../images/cancel.png'
 
 function TaskDetail(props) {
-  const match = useMatch()
-  const { taskId } = match.params
+  const { id } = useParams()
   const { tasks } = props
 
-  const task = tasks.find((task) => task.id === taskId)
+  const task = tasks.find((task) => task.id === id)
   return (
     <div className={css.wrapper}>
       <div className={css.header}>
         <h1 className={css.title}>{task.title}</h1>
-        <button className={css.close_button}>
-          <img src={cancel} alt="X"></img>
-        </button>
+        <Link exact to={`/`}>
+          <button className={css.close_button}>
+            <img src={cancel} alt="Cancel"></img>
+          </button>
+        </Link>
       </div>
-      <p className={css.text_about}>{task.description}</p>
+      <p className={css.text_about}>{task.description || ' No description '}</p>
     </div>
   )
 }

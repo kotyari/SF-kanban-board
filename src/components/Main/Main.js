@@ -10,7 +10,9 @@ function Main(props) {
     <main className={css.main}>
       <Routes>
         <Route key={uniqid()} exact path={`/`} element={<Board {...props} />} />
-        <Route path={`/tasks/:taskId}`} element={<TaskDetail {...props} />} />
+        <Route path="/tasks">
+          <Route path={':id'} element={<TaskDetail />} />
+        </Route>
       </Routes>
     </main>
   )

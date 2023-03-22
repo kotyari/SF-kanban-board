@@ -33,7 +33,9 @@ function List(props) {
             setFormVisible={setFormVisible}
           />
         )}
-        {type !== LIST_TYPES.BACKLOG && isFormVisible && <FormChangeList />}
+        {type !== LIST_TYPES.BACKLOG && isFormVisible && (
+          <FormChangeList {...props} />
+        )}
         {(type === LIST_TYPES.BACKLOG ||
           type === LIST_TYPES.READY ||
           type === LIST_TYPES.IN_PROGRESS ||

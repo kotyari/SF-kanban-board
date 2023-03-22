@@ -1,12 +1,15 @@
 import React from 'react'
 import css from './FormChangeList.module.css'
+import { LIST_TYPES, LIST_COPY } from '../../config'
 
-function FormChangeList() {
+function FormChangeList(props) {
+  const { title, type, tasks, addNewTask } = props
   return (
     <form>
       <select className={css.selection}>
-        <option>Пункт 1</option>
-        <option>Пункт 2</option>
+        {tasks.map((task) => {
+          return <option>{task.title}</option>
+        })}
       </select>
     </form>
   )
