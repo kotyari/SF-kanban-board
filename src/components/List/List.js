@@ -7,7 +7,7 @@ import FormAddNewTask from '../Form/FormAddNewTask'
 import FormChangeList from '../Form/FormChangeList'
 
 function List(props) {
-  const { title, type, tasks, addNewTask } = props
+  const { localTasks, title, type, tasks, addNewTask } = props
   const [isFormVisible, setFormVisible] = useState(false)
 
   const handleClick = () => {
@@ -18,7 +18,7 @@ function List(props) {
     <div className={css.list}>
       <p className={css.title}>{title}</p>
       <div className={css.tasks}>
-        {tasks.map((task) => {
+        {localTasks.map((task) => {
           return (
             <Link to={`/tasks/${task.id}`} className={css.task_link}>
               <p className={css.tasks_item} key={task.id}>

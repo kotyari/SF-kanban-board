@@ -28,7 +28,8 @@ function Board(props) {
             key={type}
             type={type}
             title={LIST_COPY[type]}
-            tasks={listTasks}
+            tasks={tasks}
+            localTasks={listTasks}
             addNewTask={addNewTask}
           />
         )

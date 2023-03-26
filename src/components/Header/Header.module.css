@@ -24,6 +24,7 @@
   padding-right: 16px;
   padding-top: 7px;
   align-items: center;
+  cursor: pointer;
 }
 
 .user_menu__avatar {
