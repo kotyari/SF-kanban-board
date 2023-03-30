@@ -31,6 +31,7 @@ function Board(props) {
             tasks={tasks}
             localTasks={listTasks}
             addNewTask={addNewTask}
+            setTasks={setTasks}
           />
         )
       })}

@@ -7,7 +7,7 @@ import FormAddNewTask from '../Form/FormAddNewTask'
 import FormChangeList from '../Form/FormChangeList'
 
 function List(props) {
-  const { localTasks, title, type, tasks, addNewTask } = props
+  const { localTasks, title, type, tasks, addNewTask, setTasks } = props
   const [isFormVisible, setFormVisible] = useState(false)
 
   const handleClick = () => {
@@ -34,7 +34,11 @@ function List(props) {
           />
         )}
         {type !== LIST_TYPES.BACKLOG && isFormVisible && (
-          <FormChangeList {...props} />
+          <FormChangeList
+            {...props}
+            setFormVisible={setFormVisible}
+            handleClick={handleClick}
+          />
         )}
         {(type === LIST_TYPES.BACKLOG ||
           type === LIST_TYPES.READY ||
