@@ -16,3 +16,9 @@
 .tasks_statistics {
   display: flex;
 }
+
+@media screen and (max-width: 494px) {
+  .footer {
+    display: none;
+  }
+}

@@ -25,7 +25,7 @@ function Board(props) {
         const listTasks = tasks.filter((task) => task.status === type)
         return (
           <List
-            key={type}
+            key={uniqid}
             type={type}
             title={LIST_COPY[type]}
             tasks={tasks}

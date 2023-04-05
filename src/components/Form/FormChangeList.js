@@ -1,19 +1,14 @@
 import React from 'react'
 import css from './FormChangeList.module.css'
-import { LIST_TYPES, LIST_COPY } from '../../config'
+
 import { useState } from 'react'
-import { useReducer } from 'react'
 
 function FormChangeList(props, event) {
-  const { title, type, tasks, setTasks, setFormVisible, handleClick } = props
-  const [taskType, setTaskType] = useState('ready')
+  const { type, tasks, setTasks, handleClick } = props
   const [values, setValues] = useState('')
 
   const changeSelect = (event) => {
-    console.log(tasks)
     event.preventDefault()
-
-    let inputValue = event.target.value
 
     const updatedTasks = tasks.map((task) => ({
       ...task,
@@ -26,8 +21,6 @@ function FormChangeList(props, event) {
           ? 'finished'
           : task.status,
     }))
-
-    console.log(updatedTasks)
 
     setTasks(updatedTasks)
     handleClick()
@@ -44,7 +37,7 @@ function FormChangeList(props, event) {
           {tasks.map((task) => {
             if (task.status === 'backlog') {
               return <option value={task.title}>{task.title}</option>
-            }
+            } else return ''
           })}
         </select>
         <button className={css.submit_btn} onClick={changeSelect}>
@@ -66,7 +59,7 @@ function FormChangeList(props, event) {
           {tasks.map((task) => {
             if (task.status === 'ready') {
               return <option>{task.title}</option>
-            }
+            } else return ''
           })}
         </select>
         <button className={css.submit_btn} onClick={changeSelect}>
@@ -88,7 +81,7 @@ function FormChangeList(props, event) {
           {tasks.map((task) => {
             if (task.status === 'inProgress') {
               return <option>{task.title}</option>
-            }
+            } else return ''
           })}
         </select>
         <button className={css.submit_btn} onClick={changeSelect}>

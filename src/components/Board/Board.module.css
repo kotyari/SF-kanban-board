@@ -3,3 +3,11 @@
   display: flex;
   justify-content: space-around;
 }
+
+@media screen and (max-width: 494px) {
+  .board {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}

@@ -8,18 +8,28 @@ function TaskDetail(props) {
   const { id } = useParams()
   const { tasks, setTasks } = props
   const task = tasks.find((task) => task.id === id)
-  //const [inputReveal, setInputReveal] = useState(false)
-  const [descValues, setDescValues] = useState('')
-  const [itemDescription, setItemDescription] = useState(task.description)
+  const [descValue, setDescValue] = useState(task.description)
+  const [inputReveal, setInputReveal] = useState(false)
 
-  const handleChange = (e) => {
-    setDescValues(e.target.value)
+  const handleForm = () => {
+    setInputReveal(!inputReveal)
   }
 
   const changeDesc = (e) => {
     e.preventDefault()
+    const updatedDescTasks = tasks.map((task) => ({
+      ...task,
+      description: task.id === id ? descValue : task.description,
+    }))
 
-    setItemDescription(descValues)
+    setTasks(updatedDescTasks)
+    handleForm()
+  }
+
+  const hideForm = (e) => {
+    e.preventDefault()
+    handleForm()
+    setDescValue(task.description)
   }
 
   return (
@@ -32,17 +42,31 @@ function TaskDetail(props) {
           </button>
         </Link>
       </div>
-      <p className={css.text_about}>
+      <p className={inputReveal ? css.hide : css.text_about}>
         {task.description || ' This task has no description '}
       </p>
-      <form onChange={(e) => setDescValues(e.target.value)}>
-        <input
+      <form className={inputReveal ? css.desc_form : css.hide}>
+        <textarea
+          onChange={(e) => setDescValue(e.target.value)}
           type="text"
           className={css.change_desc}
-          //value={itemDescription || ' This task has no description '}
-        ></input>
-        <button>Change</button>
+          value={descValue || ' This task has no description '}
+        ></textarea>
+        <div className={css.btn_wrapper}>
+          <button className={css.form_btn} onClick={changeDesc}>
+            Save
+          </button>
+          <button className={css.form_btn_cancel} onClick={hideForm}>
+            Cancel
+          </button>
+        </div>
       </form>
+      <button
+        onClick={handleForm}
+        className={inputReveal ? css.hide : css.open_form_btn}
+      >
+        Change description
+      </button>
     </div>
   )
 }
